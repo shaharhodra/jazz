@@ -16,10 +16,11 @@ public class ChangingCharacters : MonoBehaviour
 	void Start()
 	{
 
-		
-	    Red=red.GetComponentInChildren<StarterAssets.ThirdPersonController>().red=true;
-		Blue=blue.GetComponentInChildren<StarterAssets.ThirdPersonController>().blue=true;
-		
+	
+	 //   Red=red.GetComponentInChildren<StarterAssets.ThirdPersonController>().red;
+		//Blue=blue.GetComponentInChildren<StarterAssets.ThirdPersonController>().blue;
+		//Debug.Log(Red);
+
 	}
 
     // Update is called once per frame

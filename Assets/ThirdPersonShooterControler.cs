@@ -7,23 +7,31 @@ using StarterAssets;
 public class ThirdPersonShooterControler : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera aimVirtualcamera;
-    private StarterAssetsInputs starterAssetsInputs;
-
+	[SerializeField] private float normalSensitivity;
+	[SerializeField] private float aimlSensitivity;
+	public GameObject Player;
+	StarterAssetsInputs Input;
+	ThirdPersonController Controller;
+	
 	private void Awake()
 	{
-		starterAssetsInputs = GetComponent<StarterAssetsInputs>();
+	Input=Player.GetComponent<StarterAssets.StarterAssetsInputs>();
+	Controller = Player.GetComponent<StarterAssets.ThirdPersonController>();
 	}
 	// Update is called once per frame
 	void Update()
     {
-		if (starterAssetsInputs.aim)
+
+		if (Input.aim)
 		{
-			Debug.Log("cameraCheck");
-			//aimVirtualcamera.gameObject.SetActive(true);
+		
+			aimVirtualcamera.gameObject.SetActive(true);
+			Controller.setsensitivity(aimlSensitivity);
 		}
 		else
 		{
-			//aimVirtualcamera.gameObject.SetActive(false);
+			aimVirtualcamera.gameObject.SetActive(false);
+			Controller.setsensitivity(normalSensitivity);
 		}
 	}
 }

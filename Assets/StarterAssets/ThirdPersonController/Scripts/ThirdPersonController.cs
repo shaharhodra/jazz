@@ -75,6 +75,7 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        public float sensitivity = 1f;
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -170,7 +171,7 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
-
+            Debug.Log(sensitivity);
         }
         
 
@@ -213,8 +214,8 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier*sensitivity;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier*sensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -306,12 +307,12 @@ namespace StarterAssets
 
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
+                   
                     // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDJump, blue);
-                       
+                        _animator.SetBool(_animIDJump, true);
+                        _animator.SetBool(_animIDFreeFall, true);
 
                     }
                     if (jumpCount <= 0)
@@ -324,8 +325,9 @@ namespace StarterAssets
                     }
                     jumpCount++;
                 }
-                if (Grounded)
+               else  if (Grounded)
                 {
+                  
                     // reset the fall timeout timer
                     _fallTimeoutDelta = FallTimeout;
 
@@ -333,9 +335,9 @@ namespace StarterAssets
                     if (_hasAnimator)
                     {
 
-                        _animator.SetBool(_animIDFreeFall, false);
-                        _animator.SetBool(_animIDJump, false);
-                    }
+						_animator.SetBool(_animIDFreeFall, false);
+						_animator.SetBool(_animIDJump, false);
+					}
 
                     // stop our velocity dropping infinitely when grounded
                     if (_verticalVelocity < 0.0f)
@@ -374,7 +376,7 @@ namespace StarterAssets
                    
                     jumpCount++;
                 }
-                if (Grounded)
+                else if (Grounded)
                 {
                     // reset the fall timeout timer
                     _fallTimeoutDelta = FallTimeout;
@@ -383,9 +385,9 @@ namespace StarterAssets
                     if (_hasAnimator)
                     {
 
-                        _animator.SetBool(_animIDFreeFall, false);
-                        _animator.SetBool(_animIDJump, false);
-                    }
+						_animator.SetBool(_animIDFreeFall, false);
+						_animator.SetBool(_animIDJump, false);
+					}
 
                     // stop our velocity dropping infinitely when grounded
                     if (_verticalVelocity < 0.0f)
@@ -455,5 +457,9 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
-    }
+		public void setsensitivity(float newsensitivity)
+		{
+			sensitivity = newsensitivity;
+		}
+	}
 }
