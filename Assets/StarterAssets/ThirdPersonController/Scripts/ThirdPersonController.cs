@@ -1,6 +1,7 @@
 ﻿ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -102,6 +103,7 @@ namespace StarterAssets
         //player
         public bool red;
         public bool blue;
+        private bool _rotateOnMove=true;
 
 
 #if ENABLE_INPUT_SYSTEM 
@@ -143,6 +145,7 @@ namespace StarterAssets
         private void Start()
         {
             // referenc to players
+         
            
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
@@ -167,11 +170,13 @@ namespace StarterAssets
         {
            
             _hasAnimator = TryGetComponent(out _animator);
+          
+         
 
             JumpAndGravity();
             GroundedCheck();
             Move();
-            Debug.Log(sensitivity);
+           
         }
         
 
@@ -214,8 +219,8 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier*sensitivity;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier*sensitivity;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * sensitivity;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * sensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -276,8 +281,12 @@ namespace StarterAssets
                 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                     RotationSmoothTime);
 
-                // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+				// rotate to face input direction relative to camera position
+				if (_rotateOnMove)
+				{
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                }
+                
             }
 
 
@@ -460,6 +469,10 @@ namespace StarterAssets
 		public void setsensitivity(float newsensitivity)
 		{
 			sensitivity = newsensitivity;
+		}
+        public void SetRotationOnMove(bool newRotationOnMove)
+		{
+            _rotateOnMove = newRotationOnMove;
 		}
 	}
 }
