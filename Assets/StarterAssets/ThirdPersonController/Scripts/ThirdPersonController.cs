@@ -310,7 +310,7 @@ namespace StarterAssets
 			{
 
                 // Jump
-                if (Input.GetKeyDown(KeyCode.Space) && jumpCount <= 1)
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
 
 
@@ -324,19 +324,25 @@ namespace StarterAssets
                         _animator.SetBool(_animIDFreeFall, true);
 
                     }
-                    if (jumpCount <= 0)
+                    if (jumpCount ==1)
                     {
-                        Gravity = -15;
+                        Gravity = -1;
+                        _verticalVelocity = 0;
                     }
-                    else
-                    {
-                        Gravity = -4;
-                    }
+					
+					
+					
+                  
+                    
                     jumpCount++;
                 }
-               else  if (Grounded)
+                if (jumpCount == 2 && Input.GetKeyUp(KeyCode.Space))
                 {
-                  
+                    Gravity = -30;
+                }
+                else  if (Grounded)
+                {
+                    Gravity = -15;
                     // reset the fall timeout timer
                     _fallTimeoutDelta = FallTimeout;
 

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BulletProjectile : MonoBehaviour
 {
 	private Rigidbody bulletRB;
 	public float speed = 10;
+	
 	
 	private void Awake()
 	{
@@ -13,13 +15,15 @@ public class BulletProjectile : MonoBehaviour
 	}
 	private void Start()
 	{
+		
 		bulletRB.velocity = transform.forward * speed ;
+
 	}
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.GetComponent<target>()!=null)
 		{
-			Debug.Log("hitTurget");
+			Debug.Log("hit");
 		}
 		else
 		{
