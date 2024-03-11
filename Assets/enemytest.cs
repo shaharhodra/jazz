@@ -7,9 +7,11 @@ public class enemytest : MonoBehaviour
 {
     public Transform Player;
     private NavMeshAgent agent;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+       
         agent=GetComponent<NavMeshAgent>();
     }
 
@@ -18,4 +20,11 @@ public class enemytest : MonoBehaviour
     {
         agent.destination = Player.position;
     }
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Player"))
+		{
+            Destroy(player);
+		}
+	}
 }

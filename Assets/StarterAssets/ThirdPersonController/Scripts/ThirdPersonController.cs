@@ -104,6 +104,7 @@ namespace StarterAssets
         public bool red;
         public bool blue;
         private bool _rotateOnMove=true;
+       
 
 
 #if ENABLE_INPUT_SYSTEM 
@@ -310,7 +311,7 @@ namespace StarterAssets
 			{
 
                 // Jump
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space)&& jumpCount<2)
                 {
 
 
@@ -339,7 +340,9 @@ namespace StarterAssets
                 if (jumpCount == 2 && Input.GetKeyUp(KeyCode.Space))
                 {
                     Gravity = -30;
+                   
                 }
+
                 else  if (Grounded)
                 {
                     Gravity = -15;
