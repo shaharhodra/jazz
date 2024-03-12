@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class score : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class score : MonoBehaviour
     void Start()
     {
        
-        enemyScore = hitPlayer.score;
+        enemyScore = hitPlayer.score=100;
     }
 
     // Update is called once per frame
@@ -19,7 +20,12 @@ public class score : MonoBehaviour
     {
         _Text.text = enemyScore.ToString();
         enemyScore = hitPlayer.score;
-        Debug.Log(hitPlayer.score);
 
+		if (enemyScore==0)
+		{
+            //code of restart
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
+   
 }

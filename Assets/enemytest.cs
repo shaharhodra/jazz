@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class enemytest : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class enemytest : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-            Destroy(player);
-		}
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 	}
 }
