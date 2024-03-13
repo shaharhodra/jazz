@@ -7,7 +7,7 @@ public class BulletProjectile : MonoBehaviour
 {
 	private Rigidbody bulletRB;
 	public float speed = 10;
-	
+	public  Transform vfxPos;
 	
 	private void Awake()
 	{
@@ -23,11 +23,13 @@ public class BulletProjectile : MonoBehaviour
 	{
 		if (other.GetComponent<target>()!=null)
 		{
-			Debug.Log("hit");
+			// vfx efect
+			Instantiate(vfxPos, transform.position, Quaternion.identity);
+			//code for hit ...ivent triger
 		}
 		else
 		{
-			Debug.Log("miss");
+			// if dont hit code
 		}
 		Destroy(gameObject);
 	}

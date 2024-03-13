@@ -17,15 +17,20 @@ public class ThirdPersonShooterControler : MonoBehaviour
 	[SerializeField] Transform pfBulletOrojectile;
 	[SerializeField] Transform spawnBulletPosition;
 	public Canvas shotshotCanvas;
+	private Animator animator;
 
 
 
 	private void Awake()
 	{
+		
 	Input=Player.GetComponent<StarterAssets.StarterAssetsInputs>();
 	Controller = Player.GetComponent<StarterAssets.ThirdPersonController>();
-		shotshotCanvas.gameObject.SetActive(false);
+	shotshotCanvas.gameObject.SetActive(false);
+   // animator.GetComponent<Animator>();
+
 	}
+
 	// Update is called once per frame
 	void Update()
     {
@@ -43,7 +48,9 @@ public class ThirdPersonShooterControler : MonoBehaviour
 		{
 			//to activate target
 			shotshotCanvas.gameObject.SetActive(true);
-
+			// animetot weight
+			//animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+			
 			aimVirtualcamera.gameObject.SetActive(true);
 			Controller.setsensitivity(aimlSensitivity);
 			Controller.SetRotationOnMove(false);
@@ -63,6 +70,8 @@ public class ThirdPersonShooterControler : MonoBehaviour
 		}
 		else
 		{
+			// set wieght animator layer to 0
+			//animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
 			aimVirtualcamera.gameObject.SetActive(false);
 			Controller.setsensitivity(normalSensitivity);
 			Controller.SetRotationOnMove(true);

@@ -5,12 +5,13 @@ using UnityEngine;
 public class hitPlayer : MonoBehaviour
 {
     [SerializeField]public static float score;
+	public static float dameg=10;
    
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-            score++;
+            score = score-dameg;
            
 		}
 	}
