@@ -2,30 +2,28 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 
 public class ChangingCharacters : MonoBehaviour
 {
     public GameObject red;
     public GameObject blue;
+	public GameObject redPos;
+	public GameObject bluepos;
 	public bool Red;
 	public bool Blue;
     bool OnOff;
-	
-	// Start is called before the first frame update
-	void Start()
+	public Vector3 playerNewPos;
+
+	private void Start()
 	{
-
 	
-	 //   Red=red.GetComponentInChildren<StarterAssets.ThirdPersonController>().red;
-		//Blue=blue.GetComponentInChildren<StarterAssets.ThirdPersonController>().blue;
-		//Debug.Log(Red);
-
 	}
-
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
+		
 		if (Input.GetKeyDown(KeyCode.E))
 
 		{
@@ -33,28 +31,35 @@ public class ChangingCharacters : MonoBehaviour
 
 		}
 
-		
-		
+
+
 		if (OnOff)
-        {
-			
+		{
 			red.SetActive(false);
 			blue.SetActive(true);
+			redPos.transform.position = playerNewPos;
+			playerNewPos = bluepos.transform.position;
 			Blue = true;
 			Red = false;
-		}
-       else if (!OnOff)
-        {
 			
+		
+			
+		}
+
+		else if (!OnOff)
+		{
+
 			blue.SetActive(false);
 			red.SetActive(true);
+			bluepos.transform.position = playerNewPos;
+			playerNewPos = redPos.transform.position;
+
 			Red = true;
 			Blue = false;
 
 
-
 		}
-		
-		
-    }
+
+
+	}
 }

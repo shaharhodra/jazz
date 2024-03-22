@@ -73,28 +73,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "2063a8b5-6a45-43de-851b-65f3d46e7b58",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "64e4d037-32e1-4fb9-80e4-fc7330404dfe",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "left",
                     "id": "0fce8b11-5eab-4e4e-a741-b732e7b20873",
                     "path": "<Keyboard>/a",
@@ -109,28 +87,6 @@
                     "name": "right",
                     "id": "7bdda0d6-57a8-47c8-8238-8aecf3110e47",
                     "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "up",
-                    "id": "bb94b405-58d3-4998-8535-d705c1218a98",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "929d9071-7dd0-4368-9743-6793bb98087e",
-                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -187,7 +143,7 @@
                     "id": "d1d171b6-19d8-47a6-ba3a-71b6a8e7b3c0",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "InvertVector2(invertX=false),StickDeadzone,ScaleVector2(x=300,y=300)",
+                    "processors": "InvertVector2(invertX=false),StickDeadzone,ScaleVector2(x=0,y=0)",
                     "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": false,
