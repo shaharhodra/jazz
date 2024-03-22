@@ -349,7 +349,7 @@ namespace StarterAssets
 
                 else  if (Grounded)
                 {
-                    Gravity = -15;
+                    Gravity = -30;
                     // reset the fall timeout timer
                     _fallTimeoutDelta = FallTimeout;
 
