@@ -26,7 +26,7 @@ public class ThirdPersonShooterControler : MonoBehaviour
 		
 	Input=Player.GetComponent<StarterAssets.StarterAssetsInputs>();
 	Controller = Player.GetComponent<StarterAssets.ThirdPersonController>();
-	shotshotCanvas.gameObject.SetActive(false);
+	
    // animator.GetComponent<Animator>();
 
 	}
@@ -40,7 +40,7 @@ public class ThirdPersonShooterControler : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
 		if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimLayer))
 		{
-			debugTransform.position = raycastHit.point;
+			
 			mousWorldPosition = raycastHit.point;
 		}
 		

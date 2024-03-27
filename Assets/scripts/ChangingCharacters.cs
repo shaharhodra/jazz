@@ -11,8 +11,7 @@ public class ChangingCharacters : MonoBehaviour
     public GameObject blue;
 	public GameObject redPos;
 	public GameObject bluepos;
-	public bool Red;
-	public bool Blue;
+	
     bool OnOff;
 	public Vector3 playerNewPos;
 
@@ -23,6 +22,7 @@ public class ChangingCharacters : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+		
 		
 		if (Input.GetKeyDown(KeyCode.E))
 
@@ -35,27 +35,25 @@ public class ChangingCharacters : MonoBehaviour
 
 		if (OnOff)
 		{
+			
 			red.SetActive(false);
 			blue.SetActive(true);
+
 			redPos.transform.position = playerNewPos;
 			playerNewPos = bluepos.transform.position;
-			Blue = true;
-			Red = false;
 			
 		
 			
 		}
 
-		else if (!OnOff)
+		 if (!OnOff)
 		{
-
+			
 			blue.SetActive(false);
 			red.SetActive(true);
 			bluepos.transform.position = playerNewPos;
 			playerNewPos = redPos.transform.position;
 
-			Red = true;
-			Blue = false;
 
 
 		}

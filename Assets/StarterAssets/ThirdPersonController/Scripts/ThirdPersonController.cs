@@ -105,6 +105,7 @@ namespace StarterAssets
         public bool blue;
         private bool _rotateOnMove=true;
         public bool moveing;
+       
 
 
 #if ENABLE_INPUT_SYSTEM 
@@ -134,8 +135,8 @@ namespace StarterAssets
 
         private void Awake()
         {
-          
-            
+            // the players can move
+            moveing = true;
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -236,7 +237,9 @@ namespace StarterAssets
       
         public void Move()
         {
-			
+			if (moveing)
+			{
+
                 // set target speed based on move speed, sprint speed and if sprint is pressed
                 float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -305,13 +308,65 @@ namespace StarterAssets
                     _animator.SetFloat(_animIDSpeed, _animationBlend);
                     _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
                 }
+            }
+			
             
         }
            
 
         private void JumpAndGravity()
 		{
-			if (blue)
+            if (red)
+            {
+                // Jump
+                if (Input.GetKeyDown(KeyCode.Space) && jumpCount <= 1)
+                {
+
+
+                    // the square root of H * -2 * G = how much velocity needed to reach desired height
+                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+                        _animator.SetBool(_animIDJump, red);
+
+
+                    }
+
+                    jumpCount++;
+                }
+                else if (Grounded)
+                {
+                    // reset the fall timeout timer
+                    _fallTimeoutDelta = FallTimeout;
+
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+
+                        _animator.SetBool(_animIDFreeFall, false);
+                        _animator.SetBool(_animIDJump, false);
+                    }
+
+                    // stop our velocity dropping infinitely when grounded
+                    if (_verticalVelocity < 0.0f)
+                    {
+                        _verticalVelocity = -2f;
+                        jumpCount = 0;
+                    }
+
+
+
+                    // jump timeout
+                    if (_jumpTimeoutDelta >= 0.0f)
+                    {
+                        _jumpTimeoutDelta -= Time.deltaTime;
+                    }
+                }
+
+            }
+            if (blue)
 			{
 
                 // Jump
@@ -378,56 +433,7 @@ namespace StarterAssets
                 }
 
             }
-            if (red)
-            {
-                // Jump
-                if (Input.GetKeyDown(KeyCode.Space) && jumpCount <= 1)
-                {
-
-
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
-                    // update animator if using character
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDJump, red);
-                       
-
-                    }
-                   
-                    jumpCount++;
-                }
-                else if (Grounded)
-                {
-                    // reset the fall timeout timer
-                    _fallTimeoutDelta = FallTimeout;
-
-                    // update animator if using character
-                    if (_hasAnimator)
-                    {
-
-						_animator.SetBool(_animIDFreeFall, false);
-						_animator.SetBool(_animIDJump, false);
-					}
-
-                    // stop our velocity dropping infinitely when grounded
-                    if (_verticalVelocity < 0.0f)
-                    {
-                        _verticalVelocity = -2f;
-                        jumpCount = 0;
-                    }
-
-
-
-                    // jump timeout
-                    if (_jumpTimeoutDelta >= 0.0f)
-                    {
-                        _jumpTimeoutDelta -= Time.deltaTime;
-                    }
-                }
-
-            }
+       
 
 
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
@@ -487,5 +493,10 @@ namespace StarterAssets
 		{
             _rotateOnMove = newRotationOnMove;
 		}
+         public void trampolin()
+		{
+            _verticalVelocity = Mathf.Sqrt(JumpHeight*3 * -2f * Gravity);
+
+        }
 	}
 }
