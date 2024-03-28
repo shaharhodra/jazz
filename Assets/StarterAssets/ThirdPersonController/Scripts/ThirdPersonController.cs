@@ -1,7 +1,7 @@
 ﻿ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
-
+using System.Collections;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -105,10 +105,11 @@ namespace StarterAssets
         public bool blue;
         private bool _rotateOnMove=true;
         public bool moveing;
-       
+        private bool keyPressed = false;
 
 
-#if ENABLE_INPUT_SYSTEM 
+
+#if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
@@ -319,7 +320,7 @@ namespace StarterAssets
             if (red)
             {
                 // Jump
-                if (Input.GetKeyDown(KeyCode.Space) && jumpCount <= 1)
+                if (Input.GetKeyDown(KeyCode.W) && jumpCount <= 1)
                 {
 
 
@@ -364,13 +365,38 @@ namespace StarterAssets
                         _jumpTimeoutDelta -= Time.deltaTime;
                     }
                 }
+                //rooling 
+				if (Grounded&& Input.GetKeyDown(KeyCode.S))
+				{
+                    keyPressed = true;
+                    StartCoroutine(PerformAction());
+
+                    //ADD ANIM for rolling
+                }
+				
+                IEnumerator PerformAction()
+                {
+                    // Perform the action for 2 seconds
+                    MoveSpeed = 30;
+
+                    // Yield for 2 seconds
+                    yield return new WaitForSeconds(0.5f);
+
+                    MoveSpeed = 12;
+
+                    // Reset the key pressed flag
+                    keyPressed = false;
+                }
+
+
+
 
             }
             if (blue)
 			{
 
                 // Jump
-                if (Input.GetKeyDown(KeyCode.Space)&& jumpCount<2)
+                if (Input.GetKeyDown(KeyCode.W)&& jumpCount<2)
                 {
 
 
@@ -396,7 +422,7 @@ namespace StarterAssets
                     
                     jumpCount++;
                 }
-                if (jumpCount == 2 && Input.GetKeyUp(KeyCode.Space))
+                if (jumpCount == 2 && Input.GetKeyUp(KeyCode.W))
                 {
                     Gravity = -30;
                    
@@ -498,5 +524,14 @@ namespace StarterAssets
             _verticalVelocity = Mathf.Sqrt(JumpHeight*3 * -2f * Gravity);
 
         }
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.CompareTag("wall") && MoveSpeed == 30)
+			{
+                GameObject wall = other.gameObject;
+				Destroy(wall);
+			}
+		}
+
 	}
 }

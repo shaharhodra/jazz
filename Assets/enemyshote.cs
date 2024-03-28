@@ -23,7 +23,7 @@ public class enemyshote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemy.SetDestination(player.position);
+       // enemy.SetDestination(player.position);
         ShoteAtPlayer();
     }
     void ShoteAtPlayer()
@@ -35,7 +35,7 @@ public class enemyshote : MonoBehaviour
 		}
         GameObject bulletobj = Instantiate(enemyBulet, spownPoint.transform.position,spownPoint.transform.rotation) as GameObject;
         Rigidbody buletrig = bulletobj.GetComponent<Rigidbody>();
-        buletrig.AddForce(buletrig.transform.forward * enemySpeed);
+        buletrig.AddForce(buletrig.transform.right * enemySpeed);
         Destroy(bulletobj, 1f);
 
 	}

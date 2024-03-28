@@ -12,15 +12,14 @@ public class score : MonoBehaviour
     void Start()
     {
        
-        enemyScore = hitPlayer.score=100;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         _Text.text = enemyScore.ToString();
-        enemyScore = hitPlayer.score;
-
+      
 		if (enemyScore==0)
 		{
             //code of restart

@@ -8,7 +8,7 @@ public class shoting : MonoBehaviour
     public GameObject projectilePrefab; // Reference to the projectile prefab
 
     public float shootingForce = 10f; // The force with which the projectile is shot
-
+    public Transform shootPoint;
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) // Assuming Fire1 is your fire button (e.g., left mouse button)
@@ -23,7 +23,7 @@ public class shoting : MonoBehaviour
         Vector3 shootingDirection = transform.forward;
 
         // Instantiate the projectile at the player's position
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
 
         // Get the Rigidbody component of the projectile
         Rigidbody rb = projectile.GetComponent<Rigidbody>();

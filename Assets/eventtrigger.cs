@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class eventtrigger : MonoBehaviour
+public class tramolinIvent : MonoBehaviour
 {
     [SerializeField] UnityEvent triggerEvent;
     // Start is called before the first frame update
