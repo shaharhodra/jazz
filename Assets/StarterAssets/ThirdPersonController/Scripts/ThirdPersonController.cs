@@ -1,7 +1,7 @@
 ﻿ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
-
+using System.Collections;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -105,9 +105,11 @@ namespace StarterAssets
         public bool blue;
         private bool _rotateOnMove=true;
         public bool moveing;
+        private bool keyPressed = false;
 
 
-#if ENABLE_INPUT_SYSTEM 
+
+#if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
@@ -134,8 +136,8 @@ namespace StarterAssets
 
         private void Awake()
         {
-          
-            
+            // the players can move
+            moveing = true;
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -236,7 +238,9 @@ namespace StarterAssets
       
         public void Move()
         {
-			
+			if (moveing)
+			{
+
                 // set target speed based on move speed, sprint speed and if sprint is pressed
                 float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -305,17 +309,94 @@ namespace StarterAssets
                     _animator.SetFloat(_animIDSpeed, _animationBlend);
                     _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
                 }
+            }
+			
             
         }
            
 
         private void JumpAndGravity()
 		{
-			if (blue)
+            if (red)
+            {
+                // Jump
+                if (Input.GetKeyDown(KeyCode.W) && jumpCount <= 1)
+                {
+
+
+                    // the square root of H * -2 * G = how much velocity needed to reach desired height
+                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+                        _animator.SetBool(_animIDJump, red);
+
+
+                    }
+
+                    jumpCount++;
+                }
+                else if (Grounded)
+                {
+                    // reset the fall timeout timer
+                    _fallTimeoutDelta = FallTimeout;
+
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+
+                        _animator.SetBool(_animIDFreeFall, false);
+                        _animator.SetBool(_animIDJump, false);
+                    }
+
+                    // stop our velocity dropping infinitely when grounded
+                    if (_verticalVelocity < 0.0f)
+                    {
+                        _verticalVelocity = -2f;
+                        jumpCount = 0;
+                    }
+
+
+
+                    // jump timeout
+                    if (_jumpTimeoutDelta >= 0.0f)
+                    {
+                        _jumpTimeoutDelta -= Time.deltaTime;
+                    }
+                }
+                //rooling 
+				if (Grounded&& Input.GetKeyDown(KeyCode.S))
+				{
+                    keyPressed = true;
+                    StartCoroutine(PerformAction());
+
+                    //ADD ANIM for rolling
+                }
+				
+                IEnumerator PerformAction()
+                {
+                    // Perform the action for 2 seconds
+                    MoveSpeed = 30;
+
+                    // Yield for 2 seconds
+                    yield return new WaitForSeconds(0.5f);
+
+                    MoveSpeed = 12;
+
+                    // Reset the key pressed flag
+                    keyPressed = false;
+                }
+
+
+
+
+            }
+            if (blue)
 			{
 
                 // Jump
-                if (Input.GetKeyDown(KeyCode.Space)&& jumpCount<2)
+                if (Input.GetKeyDown(KeyCode.W)&& jumpCount<2)
                 {
 
 
@@ -341,7 +422,7 @@ namespace StarterAssets
                     
                     jumpCount++;
                 }
-                if (jumpCount == 2 && Input.GetKeyUp(KeyCode.Space))
+                if (jumpCount == 2 && Input.GetKeyUp(KeyCode.W))
                 {
                     Gravity = -30;
                    
@@ -378,56 +459,7 @@ namespace StarterAssets
                 }
 
             }
-            if (red)
-            {
-                // Jump
-                if (Input.GetKeyDown(KeyCode.Space) && jumpCount <= 1)
-                {
-
-
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
-                    // update animator if using character
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDJump, red);
-                       
-
-                    }
-                   
-                    jumpCount++;
-                }
-                else if (Grounded)
-                {
-                    // reset the fall timeout timer
-                    _fallTimeoutDelta = FallTimeout;
-
-                    // update animator if using character
-                    if (_hasAnimator)
-                    {
-
-						_animator.SetBool(_animIDFreeFall, false);
-						_animator.SetBool(_animIDJump, false);
-					}
-
-                    // stop our velocity dropping infinitely when grounded
-                    if (_verticalVelocity < 0.0f)
-                    {
-                        _verticalVelocity = -2f;
-                        jumpCount = 0;
-                    }
-
-
-
-                    // jump timeout
-                    if (_jumpTimeoutDelta >= 0.0f)
-                    {
-                        _jumpTimeoutDelta -= Time.deltaTime;
-                    }
-                }
-
-            }
+       
 
 
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
@@ -487,5 +519,19 @@ namespace StarterAssets
 		{
             _rotateOnMove = newRotationOnMove;
 		}
+         public void trampolin()
+		{
+            _verticalVelocity = Mathf.Sqrt(JumpHeight*3 * -2f * Gravity);
+
+        }
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.CompareTag("wall") && MoveSpeed == 30)
+			{
+                GameObject wall = other.gameObject;
+				Destroy(wall);
+			}
+		}
+
 	}
 }

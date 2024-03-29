@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class hitPlayer : MonoBehaviour
 {
-    [SerializeField]public static float score;
-	public static float dameg=10;
-   
+	PlayerInvetort playerInvetort;
+	GameObject red;
+	
+	private void Start()
+	{
+		
+		playerInvetort = red.GetComponent<PlayerInvetort>();
+	}
+
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-            score = score-dameg;
-           
+			Debug.Log("hit");
+			
+		playerInvetort.playerhit();
+		
+				
+			
 		}
 	}
 }
