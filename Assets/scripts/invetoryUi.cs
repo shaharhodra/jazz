@@ -7,8 +7,10 @@ public class invetoryUi : MonoBehaviour
 {
     TextMeshProUGUI carootText;
     TextMeshProUGUI hartText;
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+
+	
+	void Start()
     {
         carootText = GetComponent<TextMeshProUGUI>();
         hartText = GetComponent<TextMeshProUGUI>();
@@ -23,4 +25,5 @@ public class invetoryUi : MonoBehaviour
        
         hartText.text = playerInvetort.numberOfHarts.ToString();
     }
+
 }
