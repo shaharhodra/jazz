@@ -14226,6 +14226,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 527389615}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 527389622}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!4 &300775641 stripped
 Transform:
@@ -22666,6 +22670,57 @@ MonoBehaviour:
     type: 3}
   shootingForce: 20
   shootPoint: {fileID: 2022242988}
+--- !u!114 &527389622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527389608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fadfa52b4aec1b4fa9f5ef80cd95e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCarrotColision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1514484440}
+        m_TargetAssemblyTypeName: invetoryUi, Assembly-CSharp
+        m_MethodName: UpdateCarrotText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 646210014}
+        m_TargetAssemblyTypeName: invetoryUi, Assembly-CSharp
+        m_MethodName: UpdateHartText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 646210014}
+        m_TargetAssemblyTypeName: invetoryUi, Assembly-CSharp
+        m_MethodName: UpdateHartText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &528694089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c295669f7c9005b47abf4daeeca80c9a,
