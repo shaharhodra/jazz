@@ -21,6 +21,7 @@ public class tramolinIvent : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
+            Debug.Log("jump");
             triggerEvent.Invoke();
         }
       

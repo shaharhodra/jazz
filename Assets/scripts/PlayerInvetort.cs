@@ -8,6 +8,12 @@ public class PlayerInvetort : MonoBehaviour
    public int NamberOfCarrot { get; private set; }
 	public int numberOfHarts { get; private set; }
 	public UnityEvent<PlayerInvetort> onCarrotColision;
+
+	private void Awake()
+	{
+		numberOfHarts = 3;
+
+	}
 	public void CarrotCollected()
 	{
 		
@@ -22,6 +28,7 @@ public class PlayerInvetort : MonoBehaviour
 	public void playerhit()
 	{
 		numberOfHarts--;
+		onCarrotColision.Invoke(this);
 	}
 	
 }
