@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class hitPlayer : MonoBehaviour
 {
-	PlayerInvetort playerInvetort;
-	GameObject red;
+	public GameObject red;
+	
 	
 	private void Start()
 	{
-		
-		playerInvetort = red.GetComponent<PlayerInvetort>();
+
+		red = GameObject.Find("PlayerArmature");
 	}
 
 
@@ -19,11 +19,11 @@ public class hitPlayer : MonoBehaviour
 		if (other.CompareTag("Player"))
 		{
 			Debug.Log("hit");
-			
-		playerInvetort.playerhit();
-		
-				
-			
+
+			red.GetComponent<PlayerInvetort>().playerhit();
+
+
+
 		}
 	}
 }
