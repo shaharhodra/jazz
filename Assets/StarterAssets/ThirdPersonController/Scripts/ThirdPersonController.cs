@@ -521,7 +521,7 @@ namespace StarterAssets
 		}
          public void trampolin()
 		{
-            _verticalVelocity = Mathf.Sqrt(JumpHeight*3 * -2f * Gravity);
+            _verticalVelocity = Mathf.Sqrt(JumpHeight * 3 * -2f * Gravity);
 
         }
 		private void OnTriggerEnter(Collider other)

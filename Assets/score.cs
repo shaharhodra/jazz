@@ -7,18 +7,20 @@ using UnityEngine.SceneManagement;
 public class score : MonoBehaviour
 {
     public float enemyScore;
-    public TMP_Text _Text;
+   
+    public GameObject plater;
     // Start is called before the first frame update
     void Start()
     {
-       
+        plater = GameObject.Find("PlayerArmature");
        
     }
 
     // Update is called once per frame
     void Update()
     {
-        _Text.text = enemyScore.ToString();
+       enemyScore= plater.GetComponent<PlayerInvetort>().numberOfHarts;
+       
       
 		if (enemyScore==0)
 		{
