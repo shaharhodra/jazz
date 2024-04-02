@@ -9,6 +9,9 @@ TagManager:
   - bullet
   - trampolin
   - wall
+  - jazz
+  - spaz
+  - carrot
   layers:
   - Default
   - TransparentFX

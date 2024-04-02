@@ -2,33 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class PlayerInvetort : MonoBehaviour
 {
-   public int NamberOfCarrot { get; private set; }
-	public int numberOfHarts { get; private set; }
-	public UnityEvent<PlayerInvetort> onCarrotColision;
+	public TextMeshProUGUI carootText;
+	public TextMeshProUGUI hartText;
+	int carrotcount;
+	int hartCount;
+	int hitCount;
+	public int NamberOfCarrot;
+	public int numberOfHarts;
 
 	private void Awake()
 	{
+		carrotcount = 0;
+		NamberOfCarrot=0;
 		numberOfHarts = 3;
+		hitCount = 0;
 
+	}
+	private void Start()
+	{
+		
 	}
 	public void CarrotCollected()
 	{
+		carrotcount++;
+		if (carrotcount==3)
+		{
+			numberOfHarts++;
+			NamberOfCarrot++;
+			carootText.text = NamberOfCarrot.ToString();
+			hartText.text = numberOfHarts.ToString();
+			carrotcount = 0;
+		}
+		 
 		
-		NamberOfCarrot++;
-		onCarrotColision.Invoke(this);
+
+		
 	}
 	public void hartCollected()
 	{
+		
 		numberOfHarts++;
-		onCarrotColision.Invoke(this);
+		hartText.text = numberOfHarts.ToString();
 	}
 	public void playerhit()
 	{
-		numberOfHarts--;
-		onCarrotColision.Invoke(this);
+		hitCount++;
+		if (hitCount==3)
+		{
+			Debug.Log("hit");
+
+			numberOfHarts--;
+			hartText.text = numberOfHarts.ToString();
+			hitCount = 0;
+		}
+		
+		
 	}
 	
 }

@@ -19,14 +19,14 @@ public class score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       enemyScore= plater.GetComponent<PlayerInvetort>().numberOfHarts;
-       
-      
-		if (enemyScore==0)
+		enemyScore = plater.GetComponent<PlayerInvetort>().numberOfHarts;
+
+
+		if (enemyScore == 0)
 		{
-            //code of restart
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
+			//code of restart
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+	}
    
 }

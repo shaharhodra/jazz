@@ -11,20 +11,21 @@ public class ChangingCharacters : MonoBehaviour
     public GameObject blue;
 	public GameObject redPos;
 	public GameObject bluepos;
-	
+
     bool OnOff;
 	public Vector3 playerNewPos;
+	public Quaternion playerNewRotation;
 
 	private void Start()
 	{
-	
+		
 	}
 	// Update is called once per frame
 	void Update()
     {
 		
 		
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.RightControl))
 
 		{
 			OnOff = !OnOff;
@@ -38,10 +39,10 @@ public class ChangingCharacters : MonoBehaviour
 			
 			red.SetActive(false);
 			blue.SetActive(true);
-
 			redPos.transform.position = playerNewPos;
 			playerNewPos = bluepos.transform.position;
-			
+			redPos.transform.rotation = playerNewRotation;
+			playerNewRotation = bluepos.transform.rotation;
 		
 			
 		}
@@ -53,9 +54,8 @@ public class ChangingCharacters : MonoBehaviour
 			red.SetActive(true);
 			bluepos.transform.position = playerNewPos;
 			playerNewPos = redPos.transform.position;
-
-
-
+			bluepos.transform.rotation = playerNewRotation;
+			playerNewRotation = redPos.transform.rotation;
 		}
 
 
