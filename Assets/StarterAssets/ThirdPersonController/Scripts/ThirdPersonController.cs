@@ -82,13 +82,13 @@ namespace StarterAssets
         private float _cinemachineTargetPitch;
 
         // player
-        private float _speed;
+        public float _speed;
         private float _animationBlend;
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
-       [SerializeField] int jumpCount;
+        public int jumpCount;
        
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -107,14 +107,14 @@ namespace StarterAssets
         public bool moveing;
         private bool keyPressed = false;
 
-
+        public float currentHorizontalSpeed;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
         private CharacterController _controller;
-        private StarterAssetsInputs _input;
+        public StarterAssetsInputs _input;
         private GameObject _mainCamera;
 
         private const float _threshold = 0.01f;
@@ -136,8 +136,9 @@ namespace StarterAssets
 
         private void Awake()
         {
+          
             // the players can move
-           // moveing = true;
+            // moveing = true;
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -240,8 +241,9 @@ namespace StarterAssets
         {
 			if (moveing)
 			{
-				// set target speed based on move speed, sprint speed and if sprint is pressed
-				float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+               
+                // set target speed based on move speed, sprint speed and if sprint is pressed
+                float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
 				// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -250,7 +252,7 @@ namespace StarterAssets
 				if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
 				// a reference to the players current horizontal velocity
-				float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+				currentHorizontalSpeed= new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
 				float speedOffset = 0.1f;
 				float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
@@ -318,7 +320,7 @@ namespace StarterAssets
 		{
             if (red)
             {
-                
+               
                 // Jump
                 if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCount <= 1)
                 {
@@ -388,13 +390,13 @@ namespace StarterAssets
                     keyPressed = false;
                 }
 
-
+                
 
 
             }
             if (blue)
 			{
-
+               
                 // Jump
                 if (Input.GetKeyDown(KeyCode.UpArrow)&& jumpCount<2)
                 {
@@ -457,7 +459,7 @@ namespace StarterAssets
                         _jumpTimeoutDelta -= Time.deltaTime;
                     }
                 }
-
+                
             }
        
 

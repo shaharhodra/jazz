@@ -93,6 +93,10 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
+		public void test()
+		{
+			Debug.Log("test");
+		}
 	}
-
+	
 }

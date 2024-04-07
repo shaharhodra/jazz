@@ -10361,7 +10361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a051006cb609a024f88268a3362e76ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 2
+  timer: 1
   enemyBulet: {fileID: 449082493629906720, guid: 43d874b1879e0d942add742faa5050d9,
     type: 3}
   enemy: {fileID: 214088037}
@@ -48810,6 +48810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1180155ec0a4e47b96268b1703bbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redsmoke: {fileID: 0}
+  bluesmoke: {fileID: 0}
   red: {fileID: 315971229}
   blue: {fileID: 960730624}
   redPos: {fileID: 483836532239098788}
@@ -70543,7 +70545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4245703681450231356, guid: a19931f86087cd84f81d11c5a3477a85,
     type: 3}
-  shootingForce: 10
+  shootingForce: 25
   shootPoint: {fileID: 6890326660706884949}
 --- !u!4 &1766139933 stripped
 Transform:
@@ -87917,10 +87919,13 @@ MonoBehaviour:
   CameraAngleOverride: 0
   LockCameraPosition: 0
   sensitivity: 1
+  _speed: 0
   jumpCount: 0
   red: 1
   blue: 0
   moveing: 1
+  currentHorizontalSpeed: 0
+  _input: {fileID: 0}
 --- !u!1 &3447667252661585371
 GameObject:
   m_ObjectHideFlags: 0
@@ -89009,10 +89014,13 @@ MonoBehaviour:
   CameraAngleOverride: 0
   LockCameraPosition: 0
   sensitivity: 1
+  _speed: 0
   jumpCount: 0
   red: 0
   blue: 1
   moveing: 1
+  currentHorizontalSpeed: 0
+  _input: {fileID: 0}
 --- !u!143 &4416926081614028191
 CharacterController:
   m_ObjectHideFlags: 0
@@ -92991,7 +92999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4245703681450231356, guid: a19931f86087cd84f81d11c5a3477a85,
     type: 3}
-  shootingForce: 10
+  shootingForce: 25
   shootPoint: {fileID: 5312549011960337972}
 --- !u!4 &8315839998375640843
 Transform:
