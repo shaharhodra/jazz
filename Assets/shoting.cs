@@ -11,7 +11,7 @@ public class shoting : MonoBehaviour
     public Transform shootPoint;
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) // Assuming Fire1 is your fire button (e.g., left mouse button)
+        if (Input.GetKeyDown(KeyCode.Space)) // Assuming Fire1 is your fire button (e.g., left mouse button)
         {
             Shoot();
         }
