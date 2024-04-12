@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class carrot : MonoBehaviour
 {
+	int carrotCaunt;
+	
 	private void OnTriggerEnter(Collider other)
 	{
+		
 		PlayerInvetort playerInvetort = other.GetComponent<PlayerInvetort>();
 		if (playerInvetort!= null)
 		{

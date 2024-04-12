@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class score : MonoBehaviour
 {
-    public float enemyScore;
+    public static float enemyScore;
    
-    public GameObject plater;
+    public  GameObject plater;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +19,14 @@ public class score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       enemyScore= plater.GetComponent<PlayerInvetort>().numberOfHarts;
-       
-      
-		if (enemyScore==0)
+		 enemyScore = plater.GetComponent<PlayerInvetort>().numberOfHarts;
+
+
+		if (enemyScore == 0)
 		{
-            //code of restart
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
+			//code of restart
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+	}
    
 }
