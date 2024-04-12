@@ -41,8 +41,11 @@ public class ChangingCharacters : MonoBehaviour
 		{
 			Invoke("jazz",0.5f );
 			keyPressed = true;
+			//coroutine 0.5 to chanch carector
 			StartCoroutine(jazzz());
-			//bluesmoke.Play();
+			//add partical here
+
+
 		}
 
 		if (!OnOff)
@@ -50,19 +53,25 @@ public class ChangingCharacters : MonoBehaviour
 
 			Invoke("spazz", 0.5f);
 			keyPressed = true;
+			//coroutine 0.5 to chanch carector
 			StartCoroutine(Spazzz());
-			//redsmoke.Play();
+			//add partical here
 		}
 
 
 	}
 	void jazz()
 	{
+		//stop moving
 		red.GetComponentInChildren<StarterAssetsInputs>().move = Vector2.zero;
+		// stop jumping
 		red.GetComponentInChildren<ThirdPersonController>().jumpCount = 4;
+		// stop trampolin from jump
+		red.GetComponentInChildren<ThirdPersonController>().stopTrampolin();
 		red.SetActive(false);
 
 		blue.SetActive(true);
+		//on active fix rotation and position
 		redPos.transform.position = playerNewPos;
 		playerNewPos = bluepos.transform.position;
 		redPos.transform.rotation = playerNewRotation;
@@ -71,9 +80,13 @@ public class ChangingCharacters : MonoBehaviour
 	}
     void spazz()
 	{
+		//stop moving
 		blue.GetComponentInChildren<StarterAssetsInputs>().move = Vector2.zero;
+		//stop jumping
 		blue.GetComponentInChildren<ThirdPersonController>().jumpCount = 2;
-
+		// stop trampolin from jump
+		blue.GetComponentInChildren<ThirdPersonController>().stopTrampolin();
+		//on active fix rotation and position
 		blue.SetActive(false);
 		red.SetActive(true);
 		bluepos.transform.position = playerNewPos;

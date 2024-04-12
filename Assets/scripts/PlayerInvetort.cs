@@ -8,7 +8,7 @@ public class PlayerInvetort : MonoBehaviour
 {
 	public TextMeshProUGUI carootText;
 	public TextMeshProUGUI hartText;
-	int carrotcount;
+	static int carrotcount;
 	int hartCount;
 	int hitCount;
 	public int NamberOfCarrot;

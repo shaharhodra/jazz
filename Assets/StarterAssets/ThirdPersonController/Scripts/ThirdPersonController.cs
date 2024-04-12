@@ -526,6 +526,10 @@ namespace StarterAssets
             _verticalVelocity = Mathf.Sqrt(JumpHeight * 3 * -2f * Gravity);
 
         }
+        public void stopTrampolin()
+		{
+            _verticalVelocity = Mathf.Sqrt(JumpHeight * 0 * -2f * Gravity);
+        }
 		private void OnTriggerEnter(Collider other)
 		{
 			if (other.CompareTag("wall") && MoveSpeed == 30)
