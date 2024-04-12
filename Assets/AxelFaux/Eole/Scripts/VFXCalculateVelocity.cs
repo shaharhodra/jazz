@@ -45,10 +45,7 @@ namespace Eole.VFX
             ps.customData.SetVector()*/
         }
 #else 
-    void FixedUpdate()
-    {
-        SetVelocity(Time.fixedDeltaTime);
-    }
+   
 #endif
 
         private void CalculateVelocity(float deltaTime)

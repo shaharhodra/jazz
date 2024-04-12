@@ -10,20 +10,20 @@ public class invetoryUi : MonoBehaviour
 	// Start is called before the first frame update
 
 	
-	void Start()
-    {
-        carootText = GetComponent<TextMeshProUGUI>();
-        hartText = GetComponent<TextMeshProUGUI>();
-    }
+	//void Start()
+ //   {
+ //       carootText = GetComponent<TextMeshProUGUI>();
+ //       hartText = GetComponent<TextMeshProUGUI>();
+ //   }
 
-    public void UpdateCarrotText(PlayerInvetort playerInvetort)
-    {
-        carootText.text = playerInvetort.NamberOfCarrot.ToString();
-    }
-    public void UpdateHartText(PlayerInvetort playerInvetort)
-    {
+ //   public void UpdateCarrotText(PlayerInvetort playerInvetort)
+ //   {
+ //       carootText.text = playerInvetort.NamberOfCarrot.ToString();
+ //   }
+ //   public void UpdateHartText(PlayerInvetort playerInvetort)
+ //   {
        
-        hartText.text = playerInvetort.numberOfHarts.ToString();
-    }
+ //       hartText.text = playerInvetort.numberOfHarts.ToString();
+ //   }
 
 }
