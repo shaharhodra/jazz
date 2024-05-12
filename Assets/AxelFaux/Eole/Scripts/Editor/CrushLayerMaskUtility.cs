@@ -65,7 +65,7 @@ namespace EoleEditor
                 target.crushCamera = null;
 
             // If crush camera is null, find the CameraCrush class
-            target.crushCamera ??= Utility.FindObject<CameraCrush>()?.GetComponent<Camera>();
+          //  target.crushCamera ??= Utility.FindObject<CameraCrush>()?.GetComponent<Camera>();
 
             if (target.crushCamera == null)
             {

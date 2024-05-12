@@ -12,6 +12,12 @@ TagManager:
   - jazz
   - spaz
   - carrot
+  - invetory
+  - GM
+  - checkPoint
+  - box
+  - canvas
+  - shot
   layers:
   - Default
   - TransparentFX

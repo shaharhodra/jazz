@@ -118,3 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96bc9aec708a2e343bcc428f8fb6ebf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invetory: {fileID: 7210529616714047801, guid: 85079aad556c8094887c3be86bf37b09,
+    type: 3}

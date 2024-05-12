@@ -152,3 +152,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61a47fa1f6b59b49a06485f2c05f25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invetory: {fileID: 7210529616714047801, guid: 85079aad556c8094887c3be86bf37b09,
+    type: 3}

@@ -21,4 +21,11 @@ public class bulet : MonoBehaviour
 	{
         Destroy(this.gameObject);
 	}
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag=="box")
+		{
+            Destroy(gameObject);
+		}
+	}
 }

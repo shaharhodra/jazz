@@ -13,47 +13,47 @@ namespace EoleEditor
         [MenuItem("Tools/Eole/Apply All #s")]
         private static void ApplyAll()
         {
-            RefreshCrushLayerMasks();
+           // RefreshCrushLayerMasks();
             ApplyGlobalProperties();
         }
 
         [MenuItem("Tools/Eole/Refresh Crush LayerMasks")]
-        private static void RefreshCrushLayerMasks()
-        {
-            GlobalShaderCrush target = Utility.FindObject<GlobalShaderCrush>();
+        //private static void RefreshCrushLayerMasks()
+        //{
+        //    GlobalShaderCrush target = Utility.FindObject<GlobalShaderCrush>();
 
-            if (target != null)
-            {
-                CrushLayerMaskUtility.ApplyCrusherLayerMasks(target);
-            }
-            else
-            {
-                Debug.LogWarning("'RefreshCrushLayerMasks' query canceled. The GlobalShaderCrush type does not exists in your scene(s).");
-            }
-        }
+        //    if (target != null)
+        //    {
+        //        CrushLayerMaskUtility.ApplyCrusherLayerMasks(target);
+        //    }
+        //    else
+        //    {
+        //        Debug.LogWarning("'RefreshCrushLayerMasks' query canceled. The GlobalShaderCrush type does not exists in your scene(s).");
+        //    }
+        //}
 
         [MenuItem("Tools/Eole/Apply Global Registered Properties")]
         private static void ApplyGlobalProperties()
         {
-            WindManager eoleManager = Utility.FindObject<WindManager>();
+           // WindManager eoleManager = Utility.FindObject<WindManager>();
 
-            if (eoleManager != null)
-            {
-                // Ping the game object as success feedback
-                EditorGUIUtility.PingObject(eoleManager.gameObject);
+            //if (eoleManager != null)
+            //{
+            //    // Ping the game object as success feedback
+            //    EditorGUIUtility.PingObject(eoleManager.gameObject);
 
-                if (eoleManager.TryGetComponent(out GlobalShaderWind gsw))
-                    gsw.ApplyGlobalProperties();
-                if (eoleManager.TryGetComponent(out GlobalShaderColorMap gscm))
-                    gscm.ApplyGlobalProperties();
-                if (eoleManager.TryGetComponent(out GlobalShaderCrush gsc))
-                    gsc.ApplyGlobalProperties();
+            //    if (eoleManager.TryGetComponent(out GlobalShaderWind gsw))
+            //        gsw.ApplyGlobalProperties();
+            //    if (eoleManager.TryGetComponent(out GlobalShaderColorMap gscm))
+            //        gscm.ApplyGlobalProperties();
+            //    if (eoleManager.TryGetComponent(out GlobalShaderCrush gsc))
+            //        gsc.ApplyGlobalProperties();
 
-            }
-            else
-            {
-                Debug.LogWarning("'ApplyGlobalProperties' query canceled. The EoleManager type does not exists in your scene(s).");
-            }
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("'ApplyGlobalProperties' query canceled. The EoleManager type does not exists in your scene(s).");
+            //}
         }
         #endregion
 

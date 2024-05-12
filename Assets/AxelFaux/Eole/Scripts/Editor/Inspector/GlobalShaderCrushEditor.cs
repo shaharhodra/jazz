@@ -48,31 +48,31 @@ namespace EoleEditor
             script.crushCamera = EditorGUILayout.ObjectField("Crush Camera", script.crushCamera, typeof(Camera), true) as Camera;
             Undo.RecordObject(script, "Crush Camera reference");
 
-            if (script.crushCamera == null || script.crushCamera.tag == "MainCamera")
-            {
-                EditorGUILayout.HelpBox("CrushCamera needs a valid reference. Press 'Add a CrushCamera' button to fix this issue.", MessageType.Warning);
-                if (GUILayout.Button("Add a CrushCamera", GUILayout.Height(30)))
-                {
-                    var temp = Utility.FindObject<CameraCrush>();
+            //if (script.crushCamera == null || script.crushCamera.tag == "MainCamera")
+            //{
+            //    EditorGUILayout.HelpBox("CrushCamera needs a valid reference. Press 'Add a CrushCamera' button to fix this issue.", MessageType.Warning);
+            //    if (GUILayout.Button("Add a CrushCamera", GUILayout.Height(30)))
+            //    {
+            //        var temp = Utility.FindObject<CameraCrush>();
 
-                    if (temp == null)
-                        script.crushCamera = EditorUtils.InstantiateCameraCrushRenderTexture(false)?.GetComponent<Camera>();
-                    else
-                        script.crushCamera = temp.GetComponent<Camera>();
+            //        if (temp == null)
+            //            script.crushCamera = EditorUtils.InstantiateCameraCrushRenderTexture(false)?.GetComponent<Camera>();
+            //        else
+            //            script.crushCamera = temp.GetComponent<Camera>();
 
-                    // Apply background color based on current color space
-                    if (script.crushCamera != null)
-                        if (script.crushCamera.TryGetComponent(out CameraCrush component))
-                            component.SetBackgroundColor();
-                }
-            }
-            else
-            {
-                if (script.crushCamera.tag == "MainCamera")
-                {
-                    EditorGUILayout.HelpBox("Misuse camera reference. Do not use your main camera as the crush camera. Press 'Add a CrushCamera' button to fix this issue.", MessageType.Error);
-                }
-            }
+            //        // Apply background color based on current color space
+            //        if (script.crushCamera != null)
+            //            if (script.crushCamera.TryGetComponent(out CameraCrush component))
+            //                component.SetBackgroundColor();
+            //    }
+            //}
+            //else
+            //{
+            //    if (script.crushCamera.tag == "MainCamera")
+            //    {
+            //        EditorGUILayout.HelpBox("Misuse camera reference. Do not use your main camera as the crush camera. Press 'Add a CrushCamera' button to fix this issue.", MessageType.Error);
+            //    }
+            //}
             #endregion
 
             #region Render texture field

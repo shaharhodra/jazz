@@ -6,14 +6,24 @@ public class shoting : MonoBehaviour
 {
 
     public GameObject projectilePrefab; // Reference to the projectile prefab
-
+    PlayerInvetort PlayerInvetort;
     public float shootingForce = 10f; // The force with which the projectile is shot
     public Transform shootPoint;
-    void Update()
+    public bool shootabol;
+	private void Start()
+	{
+        PlayerInvetort = GameObject.FindGameObjectWithTag("invetory").GetComponent<PlayerInvetort>();
+        shootabol = true;
+	}
+	void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Assuming Fire1 is your fire button (e.g., left mouse button)
+      
+        if (Input.GetKeyDown(KeyCode.Space)&&PlayerInvetort.emmo!=0&&shootabol) // Assuming Fire1 is your fire button (e.g., left mouse button)
         {
+           
             Shoot();
+            PlayerInvetort.emmo--;
+
         }
     }
 

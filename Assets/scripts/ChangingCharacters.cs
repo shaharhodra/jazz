@@ -17,16 +17,13 @@ public class ChangingCharacters : MonoBehaviour
 	bool OnOff;
 	public Vector3 playerNewPos;
 	public Quaternion playerNewRotation;
-	
+	PlayerInvetort playerInvetort;
 	private void Start()
 	{
-		
 	}
 	// Update is called once per frame
 	void Update()
     {
-
-		
 
 		if (Input.GetKeyDown(KeyCode.RightControl))
 
@@ -57,7 +54,7 @@ public class ChangingCharacters : MonoBehaviour
 			StartCoroutine(Spazzz());
 			//add partical here
 		}
-
+		
 
 	}
 	void jazz()
@@ -80,6 +77,7 @@ public class ChangingCharacters : MonoBehaviour
 	}
     void spazz()
 	{
+
 		//stop moving
 		blue.GetComponentInChildren<StarterAssetsInputs>().move = Vector2.zero;
 		//stop jumping
