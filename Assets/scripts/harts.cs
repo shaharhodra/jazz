@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class harts : MonoBehaviour
 {
+	public GameObject invetory;
 	private void OnTriggerEnter(Collider other)
 	{
-		PlayerInvetort playerInvetort = other.GetComponent<PlayerInvetort>();
-		if (playerInvetort != null)
+		PlayerInvetort playerInvetort = invetory.GetComponent<PlayerInvetort>();
+		if (other.CompareTag("Player"))
 		{
 			playerInvetort.hartCollected();
 			gameObject.SetActive(false);

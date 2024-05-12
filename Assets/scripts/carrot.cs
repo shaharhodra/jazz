@@ -5,13 +5,15 @@ using UnityEngine;
 public class carrot : MonoBehaviour
 {
 	int carrotCaunt;
-	
+	public GameObject invetory;
 	private void OnTriggerEnter(Collider other)
 	{
 		
-		PlayerInvetort playerInvetort = other.GetComponent<PlayerInvetort>();
-		if (playerInvetort!= null)
+		PlayerInvetort playerInvetort = invetory.GetComponent<PlayerInvetort>();
+		if (other.CompareTag("Player"))
+
 		{
+			Debug.Log("carrot");
 			playerInvetort.CarrotCollected();
 			gameObject.SetActive(false);
 		}
