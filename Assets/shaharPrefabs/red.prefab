@@ -846,7 +846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7923119952816283974
 Transform:
   m_ObjectHideFlags: 0
@@ -1230,7 +1230,6 @@ GameObject:
   - component: {fileID: 7331844729173406188}
   - component: {fileID: 3281889650555034022}
   - component: {fileID: 2843943361149570680}
-  - component: {fileID: 4266457470306627231}
   - component: {fileID: 8369395398133781879}
   m_Layer: 8
   m_Name: PlayerArmature
@@ -1248,7 +1247,7 @@ Transform:
   m_GameObject: {fileID: 2434174858362644487}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -6.26, y: -0.857, z: 0.01}
+  m_LocalPosition: {x: -6.26, y: -0.857, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1508,8 +1507,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4245703681450231356, guid: a19931f86087cd84f81d11c5a3477a85,
     type: 3}
-  shootingForce: 20
+  shootingForce: 10
   shootPoint: {fileID: 7916495964035077514}
+  shootabol: 0
 --- !u!114 &2843943361149570680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,22 +1522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb7568b68934914cbb7f5616e3942de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4266457470306627231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2434174858362644487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fadfa52b4aec1b4fa9f5ef80cd95e5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carootText: {fileID: 0}
-  hartText: {fileID: 0}
-  NamberOfCarrot: 0
-  numberOfHarts: 0
 --- !u!114 &8369395398133781879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1625,7 +1609,7 @@ GameObject:
   - component: {fileID: 2899106167537241315}
   m_Layer: 0
   m_Name: buletTransformPos
-  m_TagString: Untagged
+  m_TagString: shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1657,10 +1641,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8911bda83aa4b3f419f9a67e6d8ae318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4245703681450231356, guid: a19931f86087cd84f81d11c5a3477a85,
+  projectilePrefab: {fileID: 449082493629906720, guid: 997119c1d3a6f0e42b3c596a5967b4a0,
     type: 3}
   shootingForce: 25
   shootPoint: {fileID: 7916495964035077514}
+  shootabol: 0
 --- !u!1 &2894359227428314194
 GameObject:
   m_ObjectHideFlags: 0

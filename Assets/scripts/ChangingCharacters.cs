@@ -18,6 +18,11 @@ public class ChangingCharacters : MonoBehaviour
 	public Vector3 playerNewPos;
 	public Quaternion playerNewRotation;
 	PlayerInvetort playerInvetort;
+	private void Awake()
+	{
+		OnOff = true;
+
+	}
 	private void Start()
 	{
 	}
@@ -36,7 +41,7 @@ public class ChangingCharacters : MonoBehaviour
 
 		if (OnOff)
 		{
-			Invoke("jazz",0.5f );
+			Invoke("jazz", 0.5f);
 			keyPressed = true;
 			//coroutine 0.5 to chanch carector
 			StartCoroutine(jazzz());

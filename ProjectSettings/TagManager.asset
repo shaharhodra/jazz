@@ -18,6 +18,7 @@ TagManager:
   - box
   - canvas
   - shot
+  - jazzbulet
   layers:
   - Default
   - TransparentFX

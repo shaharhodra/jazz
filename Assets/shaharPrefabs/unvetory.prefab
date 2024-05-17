@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3007543549504924043}
   m_Layer: 0
   m_Name: unvetory
-  m_TagString: Untagged
+  m_TagString: invetory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,12 +39,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210529616714047801}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fadfa52b4aec1b4fa9f5ef80cd95e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carootText: {fileID: 0}
-  hartText: {fileID: 0}
-  NamberOfCarrot: 0
-  numberOfHarts: 0
+  carot:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hart:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  textcoin: {fileID: 0}
+  textemmo: {fileID: 0}
+  carrotcount: 0
+  hitCount: 0
+  coinscount: 0
+  emmo: 0
+  player: {fileID: 0}
+  lastchecpointpos: {x: 0, y: 0, z: 0}
+  numberOfHarts: 1

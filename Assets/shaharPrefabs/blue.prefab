@@ -1326,7 +1326,6 @@ GameObject:
   - component: {fileID: 2539313888240688038}
   - component: {fileID: 7593810838209631487}
   - component: {fileID: 8515962658382263267}
-  - component: {fileID: 7626472801511671218}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -1603,24 +1602,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4245703681450231356, guid: a19931f86087cd84f81d11c5a3477a85,
     type: 3}
-  shootingForce: 20
+  shootingForce: 10
   shootPoint: {fileID: 830130793179240153}
---- !u!114 &7626472801511671218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2765443392724187413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fadfa52b4aec1b4fa9f5ef80cd95e5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carootText: {fileID: 0}
-  hartText: {fileID: 0}
-  NamberOfCarrot: 0
-  numberOfHarts: 0
+  shootabol: 0
 --- !u!1 &3068592729134892669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,11 +2808,11 @@ GameObject:
   - component: {fileID: 5730041458019379264}
   m_Layer: 0
   m_Name: blue
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5730041458019379264
 Transform:
   m_ObjectHideFlags: 0
@@ -2921,7 +2905,7 @@ GameObject:
   - component: {fileID: 1319140825668416689}
   m_Layer: 0
   m_Name: 'buletTransformPos '
-  m_TagString: Untagged
+  m_TagString: shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2953,10 +2937,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8911bda83aa4b3f419f9a67e6d8ae318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4245703681450231356, guid: a19931f86087cd84f81d11c5a3477a85,
+  projectilePrefab: {fileID: 449082493629906720, guid: 43d874b1879e0d942add742faa5050d9,
     type: 3}
   shootingForce: 25
   shootPoint: {fileID: 7881446995850931235}
+  shootabol: 0
 --- !u!1 &5151676988090529335
 GameObject:
   m_ObjectHideFlags: 0
