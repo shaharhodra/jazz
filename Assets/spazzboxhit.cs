@@ -17,7 +17,7 @@ public class spazzboxhit : MonoBehaviour
     }
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag=="spaz")
+		if (collision.gameObject.tag=="spazzbulet")
 		{
             Destroy(gameObject);
 		}

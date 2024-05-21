@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class carrot : MonoBehaviour
 {
-	int carrotCaunt;
+	
 	public GameObject invetory;
 	private void OnTriggerEnter(Collider other)
 	{

@@ -19,6 +19,7 @@ TagManager:
   - canvas
   - shot
   - jazzbulet
+  - spazzbulet
   layers:
   - Default
   - TransparentFX
