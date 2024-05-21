@@ -17,7 +17,7 @@ public class jazzboxhit : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "jazz")
+        if (collision.gameObject.tag == "jazzbulet")
         {
             Destroy(gameObject);
         }

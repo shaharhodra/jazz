@@ -49,17 +49,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   hart:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   textcoin: {fileID: 0}
   textemmo: {fileID: 0}
-  carrotcount: 0
+  carrotcount: 2
   hitCount: 0
   coinscount: 0
   emmo: 0
+  maxhart: 3
   player: {fileID: 0}
   lastchecpointpos: {x: 0, y: 0, z: 0}
   numberOfHarts: 1

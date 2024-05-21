@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class boss : MonoBehaviour
 {
     public int bosslife;
-    int hit;
+    public int hit;
     int numberOfhit;
     public GameObject[] timelines;
     GameObject bullet;
@@ -23,6 +23,7 @@ public class boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (hit==numberOfhit)
 		{
             bosslife--;
@@ -35,14 +36,31 @@ public class boss : MonoBehaviour
             Debug.Log("start next face");
             //start next face
 		}
+		if (bosslife==50)
+		{
+            timelines[1].gameObject.SetActive(false);
+            timelines[2].gameObject.SetActive(true);
+        }
         slider.value = bosslife;
 
     }
     private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("jazzbulet"))
+		if (other.CompareTag("jazzbulet") || other.CompareTag("spazzbulet"))
 		{
             hit++;
+          
 		}
 	}
+   public void hitcount()
+	{
+        hit++;
+        if (hit == 30)
+        {
+            bosslife--;
+            hit = 0;
+        }
+    }
+    
+   
 }

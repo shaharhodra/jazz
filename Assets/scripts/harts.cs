@@ -10,6 +10,7 @@ public class harts : MonoBehaviour
 		PlayerInvetort playerInvetort = invetory.GetComponent<PlayerInvetort>();
 		if (other.CompareTag("Player"))
 		{
+			Debug.Log("hart");
 			playerInvetort.hartCollected();
 			gameObject.SetActive(false);
 		}

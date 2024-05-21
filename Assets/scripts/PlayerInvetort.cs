@@ -17,7 +17,7 @@ public class PlayerInvetort : MonoBehaviour
 	public int hitCount;
 	public int coinscount;
 	public int emmo;
-	int maxhart =3;
+	public int maxhart =3;
 	[SerializeField]GameObject player;
 	public Vector3 lastchecpointpos;
 	public int numberOfHarts;
@@ -27,7 +27,7 @@ public class PlayerInvetort : MonoBehaviour
 
 		
 		emmo = 100;
-		carrotcount = 0;
+		carrotcount =0 ;
 		coinscount = 0;
 	  numberOfHarts =1;
 		hitCount = 0;
@@ -52,6 +52,7 @@ public class PlayerInvetort : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 		characterController = player.GetComponent<CharacterController>();
 		// restart from check point for debuging
+
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 
@@ -59,10 +60,10 @@ public class PlayerInvetort : MonoBehaviour
 			player.transform.position = lastchecpointpos;
 			characterController.enabled = true;
 		}
-	
-		
+
 		textcoin.text = coinscount.ToString();
 		textemmo.text = emmo.ToString();
+
 		if (numberOfHarts == 2)
 		{
 			for (int i = 0; i < hart.Length; i++)
@@ -111,7 +112,7 @@ public class PlayerInvetort : MonoBehaviour
 				carot[1].gameObject.SetActive(false);
 				carot[2].gameObject.SetActive(false);
 				carot[3].gameObject.SetActive(false);
-				carot[4].gameObject.SetActive(false);
+				//carot[4].gameObject.SetActive(false);
 
 			}
 
@@ -124,7 +125,7 @@ public class PlayerInvetort : MonoBehaviour
                 carot[1].gameObject.SetActive(true);
 				carot[2].gameObject.SetActive(false);
 				carot[3].gameObject.SetActive(false);
-				carot[4].gameObject.SetActive(false);
+				//carot[4].gameObject.SetActive(false);
 
 			}
 		}
@@ -136,7 +137,7 @@ public class PlayerInvetort : MonoBehaviour
 				carot[1].gameObject.SetActive(true);
 				carot[2].gameObject.SetActive(true);
 				carot[3].gameObject.SetActive(false);
-				carot[4].gameObject.SetActive(false);
+				//carot[4].gameObject.SetActive(false);
 
 				
 			}
@@ -149,7 +150,7 @@ public class PlayerInvetort : MonoBehaviour
 				carot[1].gameObject.SetActive(true);
 				carot[2].gameObject.SetActive(true);
 				carot[3].gameObject.SetActive(true);
-				carot[4].gameObject.SetActive(false);
+				//carot[4].gameObject.SetActive(false);
 
 
 			}
@@ -169,11 +170,12 @@ public class PlayerInvetort : MonoBehaviour
 			
 		}
 
-		
 
 	}
 	public void CarrotCollected()
 	{
+		Debug.Log(carrotcount);
+		
 		if (numberOfHarts<4)
 		{
 			carrotcount++;
