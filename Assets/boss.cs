@@ -10,7 +10,8 @@ public class boss : MonoBehaviour
     int numberOfhit;
     public GameObject[] timelines;
     GameObject bullet;
-    
+    public GameObject invetory;
+
     public Slider slider;
     // Start is called before the first frame update
     void Start()
@@ -46,11 +47,15 @@ public class boss : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("jazzbulet") || other.CompareTag("spazzbulet"))
+      
+
+        if (other.CompareTag("jazzbulet") || other.CompareTag("spazzbulet"))
 		{
+         
             hit++;
           
 		}
+		
 	}
    public void hitcount()
 	{
@@ -61,6 +66,7 @@ public class boss : MonoBehaviour
             hit = 0;
         }
     }
+    
     
    
 }
