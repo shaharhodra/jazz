@@ -27,9 +27,9 @@ public class PlayerInvetort : MonoBehaviour
 
 		
 		emmo = 100;
-		carrotcount =0 ;
+		carrotcount = 4 ;
 		coinscount = 0;
-	  numberOfHarts =1;
+	  numberOfHarts =4;
 		hitCount = 0;
 
 	}
@@ -174,7 +174,6 @@ public class PlayerInvetort : MonoBehaviour
 	}
 	public void CarrotCollected()
 	{
-		Debug.Log(carrotcount);
 		
 		if (numberOfHarts<4)
 		{
@@ -191,6 +190,7 @@ public class PlayerInvetort : MonoBehaviour
 	{
 		if (numberOfHarts<=maxhart)
 		{
+			
 			numberOfHarts++;
 
 		}

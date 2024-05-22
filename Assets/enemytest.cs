@@ -9,7 +9,8 @@ public class enemytest : MonoBehaviour
     public Transform Player;
     private NavMeshAgent agent;
     public GameObject player;
-    // Start is called before the first frame update
+    public GameObject bulet
+;    // Start is called before the first frame update
     void Start()
     {
        
@@ -20,12 +21,7 @@ public class enemytest : MonoBehaviour
     void Update()
     {
         agent.destination = Player.position;
+        Instantiate(bulet);
     }
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("Player"))
-		{
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-	}
+	
 }
