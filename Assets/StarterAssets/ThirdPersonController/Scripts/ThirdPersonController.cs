@@ -93,7 +93,7 @@ namespace StarterAssets
         // timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
-        public GameObject invetory;
+      //  public GameObject invetory;
 
         // animation IDs
         private int _animIDSpeed;
@@ -432,12 +432,13 @@ namespace StarterAssets
                 {
 
                     _animator.SetBool(_animIDFreeFall, true);
-                    Gravity = -30;
+                    Gravity = -60;
                    
                 }
 
                 else  if (Grounded)
                 {
+                    jumpCount =0;
                     Gravity = -30;
                     // reset the fall timeout timer
                     _fallTimeoutDelta = FallTimeout;
@@ -538,17 +539,17 @@ namespace StarterAssets
         }
 		private void OnTriggerEnter(Collider other)
 		{
-            PlayerInvetort playerInvetort = invetory.GetComponent<PlayerInvetort>();
+           // PlayerInvetort playerInvetort = invetory.GetComponent<PlayerInvetort>();
 
             if (other.CompareTag("wall") && MoveSpeed == 30)
 			{
                 GameObject wall = other.gameObject;
 				Destroy(wall);
 			}
-			if (other.CompareTag("boss"))
-			{
-                playerInvetort.playerhit();
-			}
+			//if (other.CompareTag("boss"))
+			//{
+   //             playerInvetort.playerhit();
+			//}
 		}
 
 	}
