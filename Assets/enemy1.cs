@@ -1,23 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class log : MonoBehaviour
+public class enemy1 : MonoBehaviour
 {
-    [SerializeField] Animator anim;
+    public Transform player;
+    NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
-      
+        agent.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        agent.destination = player.position;
         
     }
-	private void OnTriggerEnter(Collider other)
-	{
-	
-	}
 }

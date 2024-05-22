@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class log : MonoBehaviour
+public class newlog : MonoBehaviour
 {
-    [SerializeField]Animator anim;
+    [SerializeField] Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +23,5 @@ public class log : MonoBehaviour
         {
             anim.Play("TreeFall");
         }
-    }	
+    }
 }
