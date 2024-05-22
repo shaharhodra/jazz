@@ -55,7 +55,7 @@ public class PlayerInvetort : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.R))
 		{
-
+			Debug.Log("test");
 			characterController.enabled = false;
 			player.transform.position = lastchecpointpos;
 			characterController.enabled = true;
