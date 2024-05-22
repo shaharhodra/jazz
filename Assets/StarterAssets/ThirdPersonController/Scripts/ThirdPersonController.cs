@@ -406,14 +406,15 @@ namespace StarterAssets
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
                    
                     // update animator if using character
-                    if (_hasAnimator)
+                   /* if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDJump, true);
+                        
                         _animator.SetBool(_animIDFreeFall, true);
 
-                    }
+                    }*/
                     if (jumpCount ==1)
                     {
+                        _animator.SetTrigger(_animIDJump);
                         Gravity = -1;
                         _verticalVelocity = 0;
                     }
@@ -424,8 +425,10 @@ namespace StarterAssets
                     
                     jumpCount++;
                 }
-                if (jumpCount == 2 && Input.GetKeyUp(KeyCode.UpArrow))
+                if (jumpCount == 2 && Input.GetKey(KeyCode.UpArrow))
                 {
+
+                    _animator.SetBool(_animIDFreeFall, true);
                     Gravity = -30;
                    
                 }
@@ -441,8 +444,8 @@ namespace StarterAssets
                     {
 
 						_animator.SetBool(_animIDFreeFall, false);
-						_animator.SetBool(_animIDJump, false);
-					}
+                        
+                    }
 
                     // stop our velocity dropping infinitely when grounded
                     if (_verticalVelocity < 0.0f)

@@ -20,7 +20,7 @@ public class shoting : MonoBehaviour
       
         if (Input.GetKeyDown(KeyCode.Space)&&PlayerInvetort.emmo!=0&&shootabol) // Assuming Fire1 is your fire button (e.g., left mouse button)
         {
-           
+            
             Shoot();
             PlayerInvetort.emmo--;
 
