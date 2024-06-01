@@ -40,6 +40,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8817378226494811096}
     m_Modifications:
+    - target: {fileID: 133793874560843831, guid: 2298fa72453c1024a807727e3e4015b9,
+        type: 3}
+      propertyPath: m_Height
+      value: 0.06423992
+      objectReference: {fileID: 0}
+    - target: {fileID: 133793874560843831, guid: 2298fa72453c1024a807727e3e4015b9,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.013372813
+      objectReference: {fileID: 0}
+    - target: {fileID: 133793874560843831, guid: 2298fa72453c1024a807727e3e4015b9,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.0011780079
+      objectReference: {fileID: 0}
+    - target: {fileID: 133793874560843831, guid: 2298fa72453c1024a807727e3e4015b9,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.00032825847
+      objectReference: {fileID: 0}
+    - target: {fileID: 133793874560843831, guid: 2298fa72453c1024a807727e3e4015b9,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.01569688
+      objectReference: {fileID: 0}
     - target: {fileID: 1891323185745589570, guid: 2298fa72453c1024a807727e3e4015b9,
         type: 3}
       propertyPath: m_LocalPosition.x
