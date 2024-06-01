@@ -397,48 +397,45 @@ namespace StarterAssets
 
 
             }
+
             if (blue)
-			{
-               
+            {
+
                 // Jump
-                if (Input.GetKeyDown(KeyCode.UpArrow)&& jumpCount<2)
+                if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCount < 2)
                 {
 
 
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-                   
+
                     // update animator if using character
-                   /* if (_hasAnimator)
+                    if (_hasAnimator)
                     {
-                        
+                        _animator.SetBool(_animIDJump, true);
                         _animator.SetBool(_animIDFreeFall, true);
 
-                    }*/
-                    if (jumpCount ==1)
+                    }
+                    if (jumpCount == 1)
                     {
-                        _animator.SetTrigger(_animIDJump);
                         Gravity = -1;
                         _verticalVelocity = 0;
                     }
-					
-					
-					
-                  
-                    
+
+
+
+
+
                     jumpCount++;
                 }
-                if (jumpCount == 2 && Input.GetKey(KeyCode.UpArrow))
+                if (jumpCount == 2 && Input.GetKeyUp(KeyCode.UpArrow))
                 {
+                    Gravity = -30;
 
-                    _animator.SetBool(_animIDFreeFall, true);
-                    Gravity = -60;
-                   
                 }
 
-                else  if (Grounded)
+                else if (Grounded)
                 {
-                    jumpCount =0;
                     Gravity = -30;
                     // reset the fall timeout timer
                     _fallTimeoutDelta = FallTimeout;
@@ -447,8 +444,8 @@ namespace StarterAssets
                     if (_hasAnimator)
                     {
 
-						_animator.SetBool(_animIDFreeFall, false);
-                        
+                        _animator.SetBool(_animIDFreeFall, false);
+                        _animator.SetBool(_animIDJump, false);
                     }
 
                     // stop our velocity dropping infinitely when grounded
@@ -466,9 +463,9 @@ namespace StarterAssets
                         _jumpTimeoutDelta -= Time.deltaTime;
                     }
                 }
-                
+
             }
-       
+
 
 
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
