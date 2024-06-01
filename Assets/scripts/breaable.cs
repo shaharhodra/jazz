@@ -15,10 +15,16 @@ public class breaable : MonoBehaviour
 	}
 	void OnCollisionEnter(Collision collision)
 	{
-		if (_broken) return;
+        if (collision.gameObject.CompareTag("spazzbulet"))
+        {
+            Debug.Log("spazz");
+            hit = true;
+        }
+        if (_broken) return;
 		 
 		if (collision.relativeVelocity.magnitude >= _breakForce && hit)
 		{
+
 			_broken = true;
 			var replacement = Instantiate(_replacement, transform.position, transform.rotation);
 
@@ -34,10 +40,6 @@ public class breaable : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("spazzbulet"))
-		{
-			Debug.Log("spazz");
-			hit = true;
-		}
+	
 	}
 }
