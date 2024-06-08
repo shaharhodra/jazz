@@ -147,9 +147,9 @@ Material:
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
-    - _WaveFrequency: 3.25
-    - _WaveScale: 0.05
-    - _WaveSpeed: 3.46
+    - _WaveFrequency: 3.23
+    - _WaveScale: 0.02
+    - _WaveSpeed: 2.93
     - _WorkflowMode: 1
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
@@ -157,7 +157,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_7D9A58EC: {r: 0, g: 0.36386508, b: 0.5597484, a: 0.9843137}
-    - Color_F01C36BF: {r: 0, g: 0.8112113, b: 0.91194963, a: 0}
+    - Color_F01C36BF: {r: 0.8238993, g: 0.53089005, b: 0.19949755, a: 0.5803922}
     - Vector2_37B21477: {r: 40, g: 40, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
